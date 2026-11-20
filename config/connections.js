@@ -2,11 +2,11 @@ import mongoose from "mongoose";
 
 const URI = process.env.MONGODB_URI;
 
-export async function connectDB(URI) {
+export async function connectDB() {
   try {
-    await mongoose.connect();
+    await mongoose.connect(URI);
     console.log('successfully connected to mongoDB');
-  } catch {
+  } catch (err) {
     console.error('failed to connect to mongoDB', err);
   }
 }
